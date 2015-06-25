@@ -1,9 +1,10 @@
 # basilisk
 
-Be thou like the imperial basilisk,
-Killing thy foe with unapparent wounds!
-Gaze on oppression, till at that dread risk,
-Aghast she pass from the earth’s disk.
-Fear not, but gaze,- for freemen mightier grow,
-And slaves more feeble, gazing on their foe
+Be thou like the imperial basilisk,<br>
+Killing thy foe with unapparent wounds!<br>
+Gaze on oppression, till at that dread risk,<br>
+Aghast she pass from the earth’s disk.<br>
+Fear not, but gaze, for freemen mightier grow,<br>
+And slaves more feeble, gazing on their foe.<br>
+
 - Percy Bysshe Shelley, in "Ode to Naples"
