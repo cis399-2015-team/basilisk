@@ -1,0 +1,2 @@
+2) Describe how you find the public IP address of a given instance using the EC2 console. (The public IP address may change whenever an instance is stopped and restarted.)
+On the Instances screen, select the desired instance. Then on both the Description tab at the bottom there is an entry for public IPs as well as on the table entry at the top.

@@ -1,0 +1,4 @@
+1) List the EC2 instance IDs and private IP addresses of all the instances you created.
+i-fa5c8532, 10.0.3.62
+i-f229f03a, 10.0.3.11
+i-ba2cf572, 10.0.3.100
