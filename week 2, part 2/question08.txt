@@ -1,0 +1,6 @@
+8) Provide the output of a command showing all of the open network connections and ports on one of your instances.
+netstat -n -A inet
+
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0    308 10.0.3.100:22           128.223.223.240:1032    ESTABLISHED
