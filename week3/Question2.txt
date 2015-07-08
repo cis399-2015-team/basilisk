@@ -1,0 +1,8 @@
+Stop sshd.
+
+Info: Retrieving plugin
+Info: Caching catalog for ip-10-0-3-62.us-west-2.compute.internal
+Info: Applying configuration version '1436390164'
+Notice: /Stage[main]/Sshd/Service[ssh]/ensure: ensure changed 'stopped' to 'running'
+Info: /Stage[main]/Sshd/Service[ssh]: Unscheduling refresh on Service[ssh]
+Notice: Finished catalog run in 0.23 seconds

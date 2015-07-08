@@ -1,0 +1,8 @@
+Modify or delete ~ubuntu/.ssh/authorized_keys
+
+Info: Retrieving plugin
+Info: Caching catalog for ip-10-0-3-62.us-west-2.compute.internal
+Info: Applying configuration version '1436390164'
+Notice: /Stage[main]/Sshd/Ssh_authorized_key[basilisk-nhasson]/ensure: created
+Notice: /Stage[main]/Sshd/Ssh_authorized_key[basilisk-hkhamm]/ensure: created
+Notice: Finished catalog run in 0.15 seconds
