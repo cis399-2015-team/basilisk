@@ -1,0 +1,4 @@
+From /var/log/apache2/access.log:
+
+71.237.168.169 - - [16/Jul/2015:20:52:08 +0000] "GET / HTTP/1.1" 200 570 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.132 Safari/537.36"
+71.237.168.169 - - [16/Jul/2015:20:52:08 +0000] "GET /dino-riders.jpg HTTP/1.1" 304 180 "http://ec2-52-27-180-204.us-west-2.compute.amazonaws.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.132 Safari/537.36"

@@ -1,0 +1,42 @@
+Here is an entire reply:
+
+Return-Path: <stevev@hexadecimal.uoregon.edu>
+X-Original-To: ubuntu@ec2-52-27-200-153.us-west-2.compute.amazonaws.com
+Delivered-To: ubuntu@ec2-52-27-200-153.us-west-2.compute.amazonaws.com
+Received: from hexadecimal.uoregon.edu (hexadecimal.uoregon.edu [128.223.142.97])
+	by ec2-52-27-200-153.us-west-2.compute.amazonaws.com (Postfix) with ESMTPS id DAA4541EFE
+	for <ubuntu@ec2-52-27-200-153.us-west-2.compute.amazonaws.com>; Thu, 16 Jul 2015 18:25:14 +0000 (UTC)
+Received: from hexadecimal.uoregon.edu (localhost [127.0.0.1])
+	by hexadecimal.uoregon.edu (8.14.4/8.14.4/Debian-8) with ESMTP id t6GIPFr7019590
+	for <ubuntu@ec2-52-27-200-153.us-west-2.compute.amazonaws.com>; Thu, 16 Jul 2015 11:25:15 -0700
+Received: (from stevev@localhost)
+	by hexadecimal.uoregon.edu (8.14.4/8.14.4/Submit) id t6GIPFBD019589;
+	Thu, 16 Jul 2015 11:25:15 -0700
+From: Steve VanDevender <stevev@hexadecimal.uoregon.edu>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+Message-ID: <21927.63243.340730.170698@hexadecimal.uoregon.edu>
+Date: Thu, 16 Jul 2015 11:25:15 -0700
+To: ubuntu@ec2-52-27-200-153.us-west-2.compute.amazonaws.com (Ubuntu)
+Subject: cis 399: basilisk second attempt
+In-Reply-To: <20150716181606.C19B141EFF@ec2-52-27-200-153.us-west-2.compute.amazonaws.com>
+References: <20150716181606.C19B141EFF@ec2-52-27-200-153.us-west-2.compute.amazonaws.com>
+X-Mailer: VM 8.2.0b under 24.4.1 (i586-pc-linux-gnu)
+
+OK, trying again.  Here's the full original message I received:
+
+Return-Path: <ubuntu@ec2-52-27-200-153.us-west-2.compute.amazonaws.com>
+Received: from ec2-52-27-200-153.us-west-2.compute.amazonaws.com (ec2-52-27-200-153.us-west-2.compute.amazonaws.com [52.27.200.153])
+	by hexadecimal.uoregon.edu (8.14.4/8.14.4/Debian-8) with ESMTP id t6GIGCcS019523
+	for <stevev@hexadecimal.uoregon.edu>; Thu, 16 Jul 2015 11:16:18 -0700
+Received: by ec2-52-27-200-153.us-west-2.compute.amazonaws.com (Postfix, from userid 1000)
+	id C19B141EFF; Thu, 16 Jul 2015 18:16:06 +0000 (UTC)
+Message-Id: <20150716181606.C19B141EFF@ec2-52-27-200-153.us-west-2.compute.amazonaws.com>
+From: ubuntu@ec2-52-27-200-153.us-west-2.compute.amazonaws.com (Ubuntu)
+subject: cis 399: basilisk second attempt
+Date: Thu, 16 Jul 2015 18:14:23 +0000 (UTC)
+
+This is our second attempt using the correct postfix settings.
+
+basilisk (Keith Hamm and Noah Hasson)

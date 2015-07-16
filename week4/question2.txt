@@ -1,0 +1,15 @@
+From /var/log/mail.log
+
+Sent from:
+Jul 16 20:43:54 ip-10-0-3-110 postfix/pickup[16055]: C372741F00: uid=1000 from=<ubuntu>
+Jul 16 20:43:54 ip-10-0-3-110 postfix/cleanup[16594]: C372741F00: message-id=<20150716204354.C372741F00@ec2-52-27-200-153.us-west-2.compute.amazonaws.com>
+Jul 16 20:43:54 ip-10-0-3-110 postfix/qmgr[15305]: C372741F00: from=<ubuntu@ec2-52-27-200-153.us-west-2.compute.amazonaws.com>, size=2836, nrcpt=1 (queue active)
+Jul 16 20:43:54 ip-10-0-3-110 postfix/smtp[16596]: connect to hexadecimal.uoregon.edu[2607:8400:2802:2::80df:8e61]:25: Network is unreachable
+Jul 16 20:44:01 ip-10-0-3-110 postfix/smtp[16596]: C372741F00: to=<stevev@hexadecimal.uoregon.edu>, relay=hexadecimal.uoregon.edu[128.223.142.97]:25, delay=65, delays=58/0/6.1/0.32, dsn=2.0.0, status=sent (250 2.0.0 t6GKi1wZ020636 Message accepted for delivery)
+
+Sent to:
+Jul 16 18:25:14 ip-10-0-3-110 postfix/smtpd[15372]: connect from hexadecimal.uoregon.edu[128.223.142.97]
+Jul 16 18:25:14 ip-10-0-3-110 postfix/smtpd[15372]: DAA4541EFE: client=hexadecimal.uoregon.edu[128.223.142.97]
+Jul 16 18:25:14 ip-10-0-3-110 postfix/cleanup[15376]: DAA4541EFE: message-id=<21927.63243.340730.170698@hexadecimal.uoregon.edu>
+Jul 16 18:25:14 ip-10-0-3-110 postfix/qmgr[15305]: DAA4541EFE: from=<stevev@hexadecimal.uoregon.edu>, size=2210, nrcpt=1 (queue active)
+Jul 16 18:25:14 ip-10-0-3-110 postfix/local[15377]: DAA4541EFE: to=<ubuntu@ec2-52-27-200-153.us-west-2.compute.amazonaws.com>, relay=local, delay=0.05, delays=0.05/0/0/0, dsn=2.0.0, status=sent (delivered to maildir)
