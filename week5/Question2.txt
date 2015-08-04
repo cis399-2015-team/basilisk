@@ -1,1 +1,6 @@
 Describe the results of testing your load balancer when you shut down one, then both, back-end instances, and when you restore them.
+
+One server down: The loadbalancer still allows the site to load with no problems
+Two servers down: Loads no page when requested, times out
+One server restarted: The loadbalancer now allows the site to load with no problems
+Both servers restarted: The loadbalancer allows the site to load with no problems

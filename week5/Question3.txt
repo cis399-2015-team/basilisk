@@ -1,1 +1,7 @@
 Provide excerpts from web server logs from each of your web server instances showing load balancer health checks and accesses to your web content.
+
+10.0.3.14 - - [22/Jul/2015:22:01:04 +0000] "GET / HTTP/1.1" 200 582 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36"
+10.0.3.14 - - [22/Jul/2015:22:01:04 +0000] "GET /dino-riders.jpg HTTP/1.1" 200 54276 "http://basilisk-load-balancer-715752953.us-west-2.elb.amazonaws.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36"
+10.0.3.14 - - [22/Jul/2015:22:01:04 +0000] "GET /favicon.ico HTTP/1.1" 404 549 "http://basilisk-load-balancer-715752953.us-west-2.elb.amazonaws.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36"
+10.0.3.86 - - [22/Jul/2015:22:01:06 +0000] "GET /index.html HTTP/1.1" 200 647 "-" "ELB-HealthChecker/1.0"
+10.0.3.14 - - [22/Jul/2015:22:01:15 +0000] "GET /index.html HTTP/1.1" 200 647 "-" "ELB-HealthChecker/1.0"
