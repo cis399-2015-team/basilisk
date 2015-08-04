@@ -1,29 +1,21 @@
+Final Project Proposal
+
 1) concrete goals for your project, and methods of testing and verification you will apply to determine whether those goals were met
 
-Create a file server.
-- Choose the type of file server (NFS or Samba).
-- Choose internal (to AWS) or external file server.
-- Make sure it is accessible from other machines (ie mountable),
-- Make it secure
+We propose the creation of a network file system (NFS) on a new AWS instance. It will have only an internal to AWS IP address. Our goals include finding and installing the software onto the instance. We can test that by checking that it is installed and running. We want to make sure it is accessible from other machines. This is testable by checking that it is accessable from those other machines. Finally, we want to make sure it is secure and cannot be accessed without proper authentication. We can test that by attempting to access with improper credentials, i.e. checking log files.
 
 2) a discussion of your project's effect on its user population, and the user support issues it might raise
 
-Provide the user population with access to secured shared file storage over the internet or at least within the subdomain.
-Issues: adding users, giving users permission to access folders, creating new folders, managing access groups
+Provide the user population with access to secured shared file storage within our AWS subdomain. Some issues we will deal with are adding users, giving users permission to access folders (managing access groups), creating new folders, and maintaining security throughout.
 
 3) a discussion of security issues relevant to your project
 
-- decide on an authentication method: either username/password or pre-auth
-- make sure users can't access each other files unless they are in some general folder, etc
-- creating security groups
+We must establish and maintain an authentication method for users. This could be either username/password or some form of pre-authentication. We must make sure users cannot access each other files unless the files are in some general folder, etc. As was discussed above, we must also create and maintain security groups.
 
 4) a discussion of the work needed to complete the project and what might be needed to maintain it for continued future use
 
-- make all this happen with a Puppet script, that is long term maintenance more or less
-- making sure the project programs are kept up to date, etc
+The project will use a puppet script to automate the entire process including installation, setup, and some maintenance. The maintenance includes making sure the project programs are kept up to date, etc.
 
 5) documentation of the project, both for the system administration work involved and for your user community
 
-- large part of the admin stuff is the puppet script;
-- admin docs: creating users/groups/folders/security
-- user docs: how to map/mount the drive, requesting account creation, requesting folder access, putting files on and taking them off the server
+A large part of the administrative work is the puppet script. Other administrative documentation will include creating users, groups, folders, and maintaining security. User documentation will include how to map/mount the NFS, requesting account creation, requesting folder access, and adding and removing files from the server.
