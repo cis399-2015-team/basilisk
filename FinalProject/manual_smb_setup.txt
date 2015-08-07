@@ -14,7 +14,7 @@ mkdir /home/<user_name>/<folder_name>
 # Create a copy of the conf file
 sudo cp /etc/samba/smb.conf ~
 
-# Edit the conf to to add the shared directory, add this to the end
+# Edit the conf to to add the shared directory, add to the end
 [<folder_name>]
 path = /home/<user_name>/<folder_name>
 available = yes
@@ -26,6 +26,8 @@ writable = yes
 
 # Restart samba
 sudo service smbd restart
+
+# Open ports 445 and 139 (139 may not be necessary)
 
 # More info
 https://help.ubuntu.com/community/Samba/SambaServerGuide
