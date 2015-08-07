@@ -1,0 +1,4 @@
+1) run script on smb server to generate a random password, save that to a file
+2) run another script on smb server to add a smb user with that password using script variables
+3) use pdbedit -u user --pwd-must-change-time 0 from https://lists.samba.org/archive/samba/2005-April/104663.html to force the user to change the password at next login
+4) Email the user on the client machine their temp password
