@@ -6,7 +6,7 @@ sudo smbadduser [username]
 
 # User: Change password
 
-sudo smbpasswd -r //10.0.3.20 -U [username]
+sudo smbpasswd -r 10.0.3.20 -U [username]
 
 # User: Mount server
 
@@ -16,3 +16,12 @@ sudo mountserver [username] [/path/to/mount/dir]
 OR
 
 smbclient //10.0.3.20/share -U ubuntu
+
+
+cifs security: encryption between client and server (prevent easedropping), transferring data securely by default or do we need to set it up, how are the passwords stored (encryption of credentials), VPN; how does it authenticate users,
+
+maintenance: storage management itself (making, sizing/resizing, moving); user admin (creating accounts, giving shares)
+
+puppet: mount resource type with puppet, 
+
+fstab?
