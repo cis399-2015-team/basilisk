@@ -15,13 +15,48 @@ sudo mountserver [username] [/path/to/mount/dir]
 
 OR
 
-smbclient //10.0.3.20/share -U ubuntu
+smbclient -e //10.0.3.20/share -U ubuntu
 
 
-cifs security: encryption between client and server (prevent easedropping), transferring data securely by default or do we need to set it up, how are the passwords stored (encryption of credentials), VPN; how does it authenticate users,
+cifs security: (TODO fix this to reflect what we are doing now)
+- encryption between client and server (prevent easedropping), transferring data securely by default or do we need to set it up
+  done
+    server: smb encrypt = mandatory
+    client: use smbclient -e
 
-maintenance: storage management itself (making, sizing/resizing, moving); user admin (creating accounts, giving shares)
+- how are the passwords stored (encryption of credentials), VPN;
+  done
+    security = user
+    encrypt passwords = true
+    stored in /var/lib/samba/private/passdb.tdb
 
-puppet: mount resource type with puppet, 
+- how does it authenticate users,
+  done
+    all communication between client and server is now encrypted including passwords
+
+maintenance:
+- software update schedule
+- storage management itself (making, sizing/resizing, moving);
+- user admin (creating accounts, giving shares);
+- what do to with:
+  - new users, groups of users, removing old users/groups
+- read about general samba maintenance
+
+puppet: mount resource type with puppet, <----
 
 fstab?
+
+access:
+- Users can only access the file server from our subnet. This means you cannot access it over the internet.
+- AWS security groups take the place of using host-level firewalls like iptables since security groups are effectively a firewall policy. iptables only becomes useful when you need to blacklist a specific user.
+- groups can be added to shares with @[group]
+
+
+
+
+TODO:
+
+- automount shares with puppet
+- create all the documentation
+  - discuss alternative ways to connect to the server (manually mounting, fstab, smbclient, etc)
+  - the above (access, security, maintenance) and everything we wrote in our proposal needs to fleshed out
