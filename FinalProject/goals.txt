@@ -1,0 +1,3 @@
+1) concrete goals for your project, and methods of testing and verification you will apply to determine whether those goals were met
+
+We propose the creation of a network file system (NFS) on a new AWS instance. It will have only an internal to AWS IP address. Our goals include finding and installing the software onto the instance. We can test that by checking that it is installed and running. We want to make sure it is accessible from other machines. This is testable by checking that it is accessable from those other machines. Finally, we want to make sure it is secure and cannot be accessed without proper authentication. We can test that by attempting to access with improper credentials, i.e. checking log files.

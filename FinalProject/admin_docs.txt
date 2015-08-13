@@ -1,0 +1,3 @@
+5) documentation of the project, both for the system administration work involved and for your user community
+
+A large part of the administrative work is the puppet script. Other administrative documentation will include creating users, groups, folders, and maintaining security. User documentation will include how to map/mount the NFS, requesting account creation, requesting folder access, and adding and removing files from the server.

@@ -1,0 +1,3 @@
+4) a discussion of the work needed to complete the project and what might be needed to maintain it for continued future use
+
+The project will use a puppet script to automate the entire process including installation, setup, and some maintenance. The maintenance includes making sure the project programs are kept up to date, etc.

@@ -1,0 +1,3 @@
+2) a discussion of your project's effect on its user population, and the user support issues it might raise
+
+Provide the user population with access to secured shared file storage within our AWS subdomain. Some issues we will deal with are adding users, giving users permission to access folders (managing access groups), creating new folders, and maintaining security throughout.
