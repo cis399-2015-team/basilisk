@@ -1,8 +1,9 @@
 3) a discussion of security issues relevant to your project
 
-We must establish and maintain an authentication method for users. This could be either username/password or some form of pre-authentication. We must make sure users cannot access each other files unless the files are in some general folder, etc. As was discussed above, we must also create and maintain security groups.
+The file server is secured with several different layers of protection. On the file server and client we have AWS security groups and iptables rules to prevent unwanted access. Shares, users, and groups must be created by the server administrator prior to use by users. All communication between the client and server is encrypted. Authentication is handled via user passwords that are created only by the server administrator. User passwords are stored in an encrypted password database used only by samba.
 
-You should also research known security issues with NFS or CIFS
-(depending on what you implement) and how to protect access both at the
-network level (iptables filtering, network access control in the server)
-along with user authentication.
+We created a new security group for both our file server and the client called basilisk-security. This group opens only the ports needed by samba (137-139 and 445). This is our first line of defense. We installed a firewall module on our Puppet server and created a custom module that uses it to add iptables rules to both the file server and client. These rules only allow those protocols that we are using on our VMs including the same ports we opened in the security group. Additionally the rules drop all unapproved access attempts. Finally, the rules for access the file server and client using the open samba ports only allow access from within our subnet (10.0.3.0).
+
+Samba requires administrators to manually add new shares to its configuration file (/etc/samba/smb.conf). When creating these shares we limit access to the user group samba that we created for the purpose. This would be extensible to allow the creation of additional groups and shares with their own groups to completely control which users and groups have access to any given share.
+
+To ensure there is no eavesdropping on communications and especially on the password authentication of our users all communication between the server and client is encrypted. This was done in the samba configuration file by setting server signing and client signing to mandatory. Also in the same file we set security to user and turned on encrypt passwords to make sure passwords are not stored as plan text.
