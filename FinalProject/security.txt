@@ -1,3 +1,8 @@
 3) a discussion of security issues relevant to your project
 
 We must establish and maintain an authentication method for users. This could be either username/password or some form of pre-authentication. We must make sure users cannot access each other files unless the files are in some general folder, etc. As was discussed above, we must also create and maintain security groups.
+
+You should also research known security issues with NFS or CIFS
+(depending on what you implement) and how to protect access both at the
+network level (iptables filtering, network access control in the server)
+along with user authentication.
