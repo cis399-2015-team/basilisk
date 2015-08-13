@@ -1,3 +1,71 @@
 5) documentation of the project, both for the system administration work involved and for your user community
 
-A large part of the administrative work is the puppet script. Other administrative documentation will include creating users, groups, folders, and maintaining security. User documentation will include how to map/mount the NFS, requesting account creation, requesting folder access, and adding and removing files from the server.
+A large part of the administrative work is in the Puppet modules. Other administrative documentation includes creating directories, users, groups, and maintaining security.
+
+
+# System administrator documentation:
+
+## Sharing a directory
+
+To create new shares the administrator must modify smb.conf. This file is managed by Puppet. Each share has a standard setup that looks like this:
+
+[<folder_name>]
+path = /home/<user_name>/<folder_name>
+available = yes
+valid users = <user_name>
+read only = no
+browseable = yes
+public = yes
+writable = yes
+
+Path is the path to the shared directory. Valid users can be a username separately created with smbadduser or smbpasswd. Add these shares to the end of the smb.conf file.
+
+
+## Add users
+
+Before users can be added to samba they must first exist on the system. There are a couple ways to add users. First, the user account must already exist on the system. These can be created with:
+
+sudo adduser <username>
+
+You will be required to assign and confirm a password, asked to add additional information for the user, and then asked for final confirmation.
+
+If this user needs to manually mount shares themselves they must be added to sudoers. A copy of this file is also managed by Puppet and new users or groups can be added by copying the existing line and changing the initial name to match the user or group.
+
+
+## Add groups
+
+New groups can be added with this command:
+
+sudo addgroup <group>
+
+Then, a user can be added to an existing group with this command:
+
+sudo adduser <username> <group>
+
+
+## Add samba users
+
+There are a couple ways to add samba users: the standard built-in command or the custom smbadduser script which is maintained by Puppet.
+
+This is the custom command:
+
+sudo smbadduser <username>
+
+This is the standard command:
+
+sudo smbpasswd -a <username>
+
+The smbadduser command adds a samba user with a semi-random password and requires that the user change their password before they can mount a share. It will print out the random password that should be mailed to the user along with instructing them to use this command to change their password:
+
+sudo smbpasswd -r <server IP> -U <username>
+
+Alternately you can use smbpasswd to create the user:
+
+sudo smbpasswd -a <username>
+
+Use '-s' to only modify the user's password.
+
+
+## Maintaining security
+
+Throughout all maintenance keeping everything secure is a top priority. This means keeping track of groups and their members to make sure that only approved users and groups have access to the intended shares. When approving users to mount directories by added groups or users to sudoers you should always give people the minimum permissions necessary. Always prefer changing the Puppet modules over editing file on your systems directly. Use private git repositories to keep your configuration secret. Keep track of security updates and always schedule their application promptly.
