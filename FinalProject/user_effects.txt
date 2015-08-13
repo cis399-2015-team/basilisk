@@ -1,6 +1,6 @@
 2) a discussion of your project's effect on its user population, and the user support issues it might raise
 
-The user population can access a CIFS shared file system located on an AWS instance via another server on the same subdomain. This requires the user's public key to be added by the admins to be able to login to the client instance. Then, once the user is allowed to access the client server, they must contact an admin to add   their user account. A temporary password will be created for the user to login with, they must then change it one their first time logging in.
+The user population can access a CIFS shared file system located on an AWS instance via another server on the same subdomain. This requires the user's public key to be added by the admins to be able to login to the client instance. Then, once the user is allowed to access the client server, they must contact an admin to add   their user account. A temporary password will be created for the user to login with, they must then change it on their first time logging in.
 
 Folders desired by the user must be created on the server by the admins. Once the specified folder has been created, the admin has the ability to add or remove any user or group from the folder permissions. The user can then mount said file on the client instance using the command "sudo mount -a". Then if the user desires to unmount the folder, they can use the command "sudo umount -a". However, this causes the following messages to appear:
 

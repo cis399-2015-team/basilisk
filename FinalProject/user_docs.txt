@@ -1,3 +1,29 @@
 5) documentation of the project, both for the system administration work involved and for your user community
 
-A large part of the administrative work is the puppet script. Other administrative documentation will include creating users, groups, folders, and maintaining security. User documentation will include how to map/mount the NFS, requesting account creation, requesting folder access, and adding and removing files from the server.
+Creating a user account:
+
+The user must contact an admin to add their account to the file server. A temporary password will be created for the user to login with, they must then change it on their first time logging in.
+
+Creating a shared folder:
+
+Folders desired by the user must be created on the server by the admins. Once the specified folder has been created, the admin has the ability to add or remove any user or group from the folder permissions.
+
+Mounting/unmounting a folder:
+
+The user can then mount said file on the client instance using the command "sudo mount -a". Then if the user desires to unmount the folder, they can use the command "sudo umount -a". However, this causes the following messages to appear:
+
+    "umount: /run: device is busy.
+            (In some cases useful info about processes that use
+             the device is found by lsof(8) or fuser(1))
+    umount: /dev: device is busy.
+            (In some cases useful info about processes that use
+             the device is found by lsof(8) or fuser(1))
+    umount: /: device is busy.
+            (In some cases useful info about processes that use
+             the device is found by lsof(8) or fuser(1))".
+
+The command works as intended and does indeed unmount the server, so the user should not be concerned with the appearance of the messages. There is an alternative method one can use, "sudo umount [path/to/folder]". This option does not create any error messages from its use.
+
+Adding files to folder:
+
+Once mounted onto the client, the user can then create, change, and access any files in the shared folder.
