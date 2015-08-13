@@ -1,3 +1,19 @@
 2) a discussion of your project's effect on its user population, and the user support issues it might raise
 
-Provide the user population with access to secured shared file storage within our AWS subdomain. Some issues we will deal with are adding users, giving users permission to access folders (managing access groups), creating new folders, and maintaining security throughout.
+The user population can access a CIFS shared file system located on an AWS instance via another server on the same subdomain. This requires the user's public key to be added by the admins to be able to login to the client instance. Then, once the user is allowed to access the client server, they must contact an admin to add   their user account. A temporary password will be created for the user to login with, they must then change it one their first time logging in.
+
+Folders desired by the user must be created on the server by the admins. Once the specified folder has been created, the admin has the ability to add or remove any user or group from the folder permissions. The user can then mount said file on the client instance using the command "sudo mount -a". Then if the user desires to unmount the folder, they can use the command "sudo umount -a". However, this causes the following messages to appear:
+
+    "umount: /run: device is busy.
+            (In some cases useful info about processes that use
+             the device is found by lsof(8) or fuser(1))
+    umount: /dev: device is busy.
+            (In some cases useful info about processes that use
+             the device is found by lsof(8) or fuser(1))
+    umount: /: device is busy.
+            (In some cases useful info about processes that use
+             the device is found by lsof(8) or fuser(1))".
+
+The command works as intended and does indeed unmount the server, so the user should not be concerned with the appearance of the messages. There is an alternative method one can use, "sudo umount [path/to/folder]". This option does not create any error messages from its use.
+
+Security does not require any extra work from the user, as it is maintained in both the communications between client and server automatically using server signing, and on the server itself.
