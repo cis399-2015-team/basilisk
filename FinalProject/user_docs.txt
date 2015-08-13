@@ -30,4 +30,4 @@ Once mounted onto the client, the user can then create, change, and access any f
 
 Alternative ways to access the file system:
 
-There is another method to accessing the shared folder content in using the Command "smbclient //10.0.3.20/[Shared-folder] -U [User-account]". This method allows the user to navigate and edit the folder in the server itself rather than by mounting the server on the client.
+There is another method to accessing the shared folder content in using the command "smbclient //10.0.3.20/[Shared-folder] -U [User-account]". This method allows the user to navigate and edit the folder in the server itself rather than by mounting the server on the client.
