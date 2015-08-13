@@ -1,3 +1,5 @@
 4) a discussion of the work needed to complete the project and what might be needed to maintain it for continued future use
 
 The project will use a puppet script to automate the entire process including installation, setup, and some maintenance. The maintenance includes making sure the project programs are kept up to date, etc.
+
+We used a several different Puppet modules to setup our samba server and client. The server is setup with the samba module. The client is setup with the smbclient module. This module makes sure the samba package is installed, ensures the shared folders are present, adds a custom smbadduser script, and uses a service resource to guarantee that the file server is always running. 
