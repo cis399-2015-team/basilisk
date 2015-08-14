@@ -1,19 +1,7 @@
 2) a discussion of your project's effect on its user population, and the user support issues it might raise
 
-The user population can access a CIFS shared file system located on an AWS instance via another server on the same subdomain. This requires the user's public key to be added by the admins to be able to login to the client instance. Then, once the user is allowed to access the client server, they must contact an admin to add   their user account. A temporary password will be created for the user to login with, they must then change it on their first time logging in.
+The user population can only access a samba share located on our server from a client on the same subnet. To access a client machine, the user's public key must be added by the administrator via Puppet resources. Once the user is allowed to access the client, an administrator must create a samba user account on the server to allow the user to mount it on their machine. A temporary password will be created for the user to login with and they must change it before the can mount the share.
 
-Folders desired by the user must be created on the server by the admins. Once the specified folder has been created, the admin has the ability to add or remove any user or group from the folder permissions. The user can then mount said file on the client instance using the command "sudo mount -a". Then if the user desires to unmount the folder, they can use the command "sudo umount -a". However, this causes the following messages to appear:
+New shares must be created on the samba server by administrators. Once the specified directory has been created, the administrator has the ability to add or remove any user or group from the directory permissions and setup the client for easy access to the server by modifying the Puppet managed mount resource. The user can then mount the share on the client instance using the command "sudo mount -a". If the user wants to unmount the share, they could use the command "sudo umount -a", however, this causes the following errors to appear. The preferred method is to use, "sudo umount [path/to/folder]". This option does not create any error messages from its use.
 
-    "umount: /run: device is busy.
-            (In some cases useful info about processes that use
-             the device is found by lsof(8) or fuser(1))
-    umount: /dev: device is busy.
-            (In some cases useful info about processes that use
-             the device is found by lsof(8) or fuser(1))
-    umount: /: device is busy.
-            (In some cases useful info about processes that use
-             the device is found by lsof(8) or fuser(1))".
-
-The command works as intended and does indeed unmount the server, so the user should not be concerned with the appearance of the messages. There is an alternative method one can use, "sudo umount [path/to/folder]". This option does not create any error messages from its use.
-
-Security does not require any extra work from the user, as it is maintained in both the communications between client and server automatically using server signing, and on the server itself.
+Security does not require any extra work from the user, as it is maintained in both the communications between client and server automatically using server signing and on the server itself.
