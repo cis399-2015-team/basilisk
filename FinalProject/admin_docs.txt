@@ -5,9 +5,11 @@ A large part of the administrative work is in the Puppet modules. Other administ
 
 # System administrator documentation:
 
-## Sharing a directory
+## Managing shared directories
 
-To create new shares the administrator must modify smb.conf. This file is managed by Puppet. Each share has a standard setup that looks like this:
+### Create new shares
+
+To create new shares on the server the administrator must modify smb.conf. This file is managed by Puppet. Each share has a standard setup that looks like this:
 
 [<folder_name>]
 path = /home/<user_name>/<folder_name>
@@ -18,21 +20,44 @@ browseable = yes
 public = yes
 writable = yes
 
-Path is the path to the shared directory. Valid users can be a username separately created with smbadduser or smbpasswd. Add these shares to the end of the smb.conf file.
+Path is the path to the shared directory. Valid users can be a username separately created with smbadduser or smbpasswd or a group prefixed by an '@': i.e. @group. Add these shares to the end of the smb.conf file.
+
+After created shares on the server via the Puppet managed smb.conf file in the samba module, you need to add a new mount resource to make it easy for users to mount their shares. This is handled in the smbclient module by a mount resource. You can copy the existing mount and modify its attributes to create additional entries in the client's /etc/fstabs.
+
+### Removing shares
+
+To remove a share simply remove the appropriate section from smb.conf. Afterward the shared folder can also be removed.
+
+Also, remove the corresponding mount resource from the smbclient module.
 
 
-## Add users
+## Managing Users and Groups on the Server
 
-Before users can be added to samba they must first exist on the system. There are a couple ways to add users. First, the user account must already exist on the system. These can be created with:
+### Add users
+
+Before users can be added to samba they must first exist on the system. There are a couple ways to add users. These can be created with:
 
 sudo adduser <username>
 
 You will be required to assign and confirm a password, asked to add additional information for the user, and then asked for final confirmation.
 
-If this user needs to manually mount shares themselves they must be added to sudoers. A copy of this file is also managed by Puppet and new users or groups can be added by copying the existing line and changing the initial name to match the user or group.
+### Remove users
 
+To remove no longer necessary user accounts issue this command:
 
-## Add groups
+sudo deluser <username>
+
+If you want to remove the home directory along with the user use this command:
+
+sudo deluser --remove-home <username>
+
+### Sudo privileges
+
+If this user needs to manually mount shares themselves they must be added to sudoers. A copy of this file is also managed by the smbclient Puppet module. New users or groups can be added by copying the existing line and changing the initial name to match the user or group.
+
+After a user account is no longer needed or has already been removed always remove the corresponding line from the puppet managed sudoers file. 
+
+### Add groups
 
 New groups can be added with this command:
 
@@ -42,10 +67,9 @@ Then, a user can be added to an existing group with this command:
 
 sudo adduser <username> <group>
 
+### Add samba users
 
-## Add samba users
-
-There are a couple ways to add samba users: the standard built-in command or the custom smbadduser script which is maintained by Puppet.
+Once the user account has been created it must be connected with samba. There are a couple ways to add samba users: the standard built-in command or the custom smbadduser script which is maintained by Puppet.
 
 This is the custom command:
 
@@ -63,9 +87,15 @@ Alternately you can use smbpasswd to create the user:
 
 sudo smbpasswd -a <username>
 
-Use '-s' to only modify the user's password.
+Note: Use '-s' to only modify the user's password.
+
+### Remove samba users
+
+Samba users can be removed using smbpasswd:
+
+sudo smbpasswd -x <username>
 
 
 ## Maintaining security
 
-Throughout all maintenance keeping everything secure is a top priority. This means keeping track of groups and their members to make sure that only approved users and groups have access to the intended shares. When approving users to mount directories by added groups or users to sudoers you should always give people the minimum permissions necessary. Always prefer changing the Puppet modules over editing file on your systems directly. Use private git repositories to keep your configuration secret. Keep track of security updates and always schedule their application promptly.
+Throughout all maintenance keeping everything secure is a top priority. This means keeping track of groups and their members to make sure that only approved users and groups have access to the intended shares. Always prefer changing the Puppet modules over editing files on your systems directly. Use private git repositories to keep your configuration secret. Keep track of security updates and always schedule them promptly.
