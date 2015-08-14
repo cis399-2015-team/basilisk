@@ -3,7 +3,7 @@
 A large part of the administrative work is in the Puppet modules. Other administrative documentation includes creating directories, users, groups, and maintaining security.
 
 
-# System administrator documentation:
+# System administrator documentation
 
 ## Managing shared directories
 
@@ -11,10 +11,10 @@ A large part of the administrative work is in the Puppet modules. Other administ
 
 To create new shares on the server the administrator must modify smb.conf. This file is managed by Puppet. Each share has a standard setup that looks like this:
 
-[<folder_name>]
-path = /home/<user_name>/<folder_name>
+[[folder_name]]
+path = /home/[user_name]/[folder_name]
 available = yes
-valid users = <user_name>
+valid users = [user_name]
 read only = no
 browseable = yes
 public = yes
@@ -37,7 +37,7 @@ Also, remove the corresponding mount resource from the smbclient module.
 
 Before users can be added to samba they must first exist on the system. There are a couple ways to add users. These can be created with:
 
-sudo adduser <username>
+sudo adduser [username]
 
 You will be required to assign and confirm a password, asked to add additional information for the user, and then asked for final confirmation.
 
@@ -45,27 +45,27 @@ You will be required to assign and confirm a password, asked to add additional i
 
 To remove no longer necessary user accounts issue this command:
 
-sudo deluser <username>
+sudo deluser [username]
 
 If you want to remove the home directory along with the user use this command:
 
-sudo deluser --remove-home <username>
+sudo deluser --remove-home [username]
 
 ### Sudo privileges
 
 If this user needs to manually mount shares themselves they must be added to sudoers. A copy of this file is also managed by the smbclient Puppet module. New users or groups can be added by copying the existing line and changing the initial name to match the user or group.
 
-After a user account is no longer needed or has already been removed always remove the corresponding line from the puppet managed sudoers file. 
+After a user account is no longer needed or has already been removed always remove the corresponding line from the puppet managed sudoers file.
 
 ### Add groups
 
 New groups can be added with this command:
 
-sudo addgroup <group>
+sudo addgroup [group]
 
 Then, a user can be added to an existing group with this command:
 
-sudo adduser <username> <group>
+sudo adduser [username] [group]
 
 ### Add samba users
 
@@ -73,19 +73,19 @@ Once the user account has been created it must be connected with samba. There ar
 
 This is the custom command:
 
-sudo smbadduser <username>
+sudo smbadduser [username]
 
 This is the standard command:
 
-sudo smbpasswd -a <username>
+sudo smbpasswd -a [username]
 
 The smbadduser command adds a samba user with a semi-random password and requires that the user change their password before they can mount a share. It will print out the random password that should be mailed to the user along with instructing them to use this command to change their password:
 
-sudo smbpasswd -r <server IP> -U <username>
+sudo smbpasswd -r [server IP] -U [username]
 
 Alternately you can use smbpasswd to create the user:
 
-sudo smbpasswd -a <username>
+sudo smbpasswd -a [username]
 
 Note: Use '-s' to only modify the user's password.
 
@@ -93,7 +93,7 @@ Note: Use '-s' to only modify the user's password.
 
 Samba users can be removed using smbpasswd:
 
-sudo smbpasswd -x <username>
+sudo smbpasswd -x [username]
 
 
 ## Maintaining security

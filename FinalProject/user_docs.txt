@@ -1,33 +1,44 @@
 5) documentation of the project, both for the system administration work involved and for your user community
 
-Creating a user account:
+# User Documentation
 
-The user must contact an admin to add their account to the file server. A temporary password will be created for the user to login with, they must then change it on their first time logging in.
+## Creating a user account
 
-Creating a shared folder:
+Users must contact a server administrators to create a samba account on the file server. A temporary password will be created for the user to login with that they must change before they can mount a share. Once the temporary password has been received the user must change their password with smbpasswd:
 
-Folders desired by the user must be created on the server by the admins. Once the specified folder has been created, the admin has the ability to add or remove any user or group from the folder permissions.
+sudo smbpasswd -r [server IP] -U [username]
 
-Mounting/unmounting a folder:
 
-The user can then mount said file on the client instance using the command "sudo mount -a". Then if the user desires to unmount the folder, they can use the command "sudo umount -a". However, this causes the following messages to appear:
+## Creating a shared folder
 
-    "umount: /run: device is busy.
-            (In some cases useful info about processes that use
-             the device is found by lsof(8) or fuser(1))
-    umount: /dev: device is busy.
-            (In some cases useful info about processes that use
-             the device is found by lsof(8) or fuser(1))
-    umount: /: device is busy.
-            (In some cases useful info about processes that use
-             the device is found by lsof(8) or fuser(1))".
+Shared folders desired by the user must be created on the server by the administrators. Once the specified folder has been created, the admin has the ability to add or remove any user or group from the folder permissions.
 
-The command works as intended and does indeed unmount the server, so the user should not be concerned with the appearance of the messages. There is an alternative method one can use, "sudo umount [path/to/folder]". This option does not create any error messages from its use.
 
-Adding files to folder:
+## Mounting/unmounting a share
 
-Once mounted onto the client, the user can then create, change, and access any files in the shared folder.
+Mount a share with this command:
 
-Alternative ways to access the file system:
+sudo mount -a
 
-There is another method to accessing the shared folder content in using the command "smbclient //10.0.3.20/[Shared-folder] -U [User-account]". This method allows the user to navigate and edit the folder in the server itself rather than by mounting the server on the client.
+To unmount the share, the preferred method is to issue this command:
+
+sudo umount [/path/to/folder]
+
+
+## Adding files to folder
+
+Once mounted onto the client, the user can then create, change, and access any files in the shared folder with standard commands for their system.
+
+
+## Alternative ways to access the shared file system
+
+Users may also access the shares using this command:
+
+smbclient //[server IP]/[share] -U [username]
+
+This method allows the user to navigate and edit the folder in the server itself rather than by mounting the server on the client.
+
+
+## Additional help
+
+If any of the above mounting, unmounting, or editing of files results in unexpected errors please contact your server administrators.
