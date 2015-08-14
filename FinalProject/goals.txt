@@ -10,4 +10,4 @@ sudo mount -t cifs //10.0.3.20/website ~/website -o username=test,noexec,sec=ntl
 
 Since it denies access or entry into the system, the security tests are successful.
 
-This shared directories can also not be accessed outside of our subnet. This is testable by trying to access it via a home computer and trying to mount a shared folder using the command "smb://52.27.180.204/website". This mount never completes. Thus, it is impossible to connect via the server's public IP address and the folders are only mountable from inside the server's subdnet.
+This shared directories also cannot be accessed outside of our subnet. This is testable by trying to access it via a home computer and trying to mount a shared folder using the command "smb://52.27.180.204/website". This mount never completes. Thus, it is impossible to connect via the server's public IP address and the folders are only mountable from inside the server's subdnet.
